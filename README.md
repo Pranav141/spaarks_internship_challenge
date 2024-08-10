@@ -43,3 +43,50 @@ Follow these steps to set up the backend API locally:
     http://localhost:<PORT>/q?lat=<value1>&long=<value2>&min=<value3>&max=<value4>
     ```
     - Replace all the `<variables>` with appropriate values.
+
+## Example
+
+### Input 1
+
+```php
+http://localhost:8080/q?lat=-73.98241999999999&long=40.579505&rad=10
+```
+### Output 1
+```json
+[
+    {
+        "Name of the Restaurant": "Riviera Caterer",
+        "Location": "2780 Stillwell Avenue, Brooklyn 11224",
+        "Description of restaurant": "American",
+        "Restaurant": {
+            "latitude": -73.98241999999999,
+            "longitude": 40.579505
+        },
+        "Average Rating of the restaurant": 9,
+        "No of Ratings": 4
+    }
+]
+```
+
+### Input 2
+
+```php
+http://localhost:8080/q?lat=-73.98241999999999&long=40.579505&max=200&min=190
+```
+
+### Output 1
+```json
+[
+    {
+        "Name of the Restaurant": "Papa Johns",
+        "Location": "1612 Neptune Avenue, Brooklyn 11224",
+        "Description of restaurant": "Pizza",
+        "Restaurant": {
+            "latitude": -73.98451299999999,
+            "longitude": 40.5787321
+        },
+        "Average Rating of the restaurant": 6.166666666666667,
+        "No of Ratings": 6
+    }
+]
+```

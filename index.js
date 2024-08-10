@@ -48,8 +48,13 @@ app.get('/q', auth, async (req, res) => {
                         }
                     }
                 ]).toArray();
+            if (data.length === 0) {
+                res.status(200).send("Found Nothing");
+            }
             res.status(200).send(data);
         } catch (error) {
+            console.log(error);
+
             res.status(501).send("Internal Server Error");
         }
         finally {
@@ -110,18 +115,21 @@ app.get('/q', auth, async (req, res) => {
                             _id: 0
                         }
                     }
-                ])
-                .toArray();
+                ]).toArray();
+            if (data.length === 0) {
+                res.status(200).send("Found Nothing");
+            }
             res.status(200).send(data);
         } catch (error) {
+            console.log(error);
+
             res.status(501).send("Internal Server Error");
         }
-        finally{
+        finally {
             await client.close();
         }
     }
 })
-
 app.listen(port, () => {
     console.log(`Server Started on https://localhost:${port}`);
 })
