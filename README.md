@@ -9,7 +9,7 @@ Follow these steps to set up the backend API locally:
    git clone <repository-url>
 2. Navigate to the Server Directory:
     ```bash
-    cd server
+    cd <dirname>
 3. Install Required Packages:
     ```bash
     npm install
