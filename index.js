@@ -50,8 +50,9 @@ app.get('/q', auth, async (req, res) => {
                 ]).toArray();
             if (data.length === 0) {
                 res.status(200).send("Found Nothing");
+            }else{
+                res.status(200).send(data);
             }
-            res.status(200).send(data);
         } catch (error) {
             console.log(error);
 
@@ -63,7 +64,7 @@ app.get('/q', auth, async (req, res) => {
     }
     else {
         try {
-            client.connect()
+            client.connect() 
             const data = await client.db("sample_restaurants")
                 .collection("restaurants")
                 .aggregate([
@@ -118,8 +119,9 @@ app.get('/q', auth, async (req, res) => {
                 ]).toArray();
             if (data.length === 0) {
                 res.status(200).send("Found Nothing");
+            }else{
+                res.status(200).send(data);
             }
-            res.status(200).send(data);
         } catch (error) {
             console.log(error);
 
